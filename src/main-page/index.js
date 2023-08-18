@@ -9,7 +9,7 @@ function App() {
   useEffect(() => {
     const fetchHouses = async () => {
       const rsp = await fetch("/houses.json");
-      const houses = rsp.json();
+      const houses = await rsp.json();
       setAllHouses(houses);
     };
     fetchHouses();
