@@ -1,9 +1,10 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+
 const HouseFilter = ({ allHouses }) => {
     const navigate=useNavigate()
   const countries = allHouses
-    ? Array.from(new Set(allHouses.map((house) => house.country)))
+    ? Array.from(new Set(allHouses.map((h) => h.country)))
     : [];
   countries.unshift(null);
   const onSearchChange=(e)=>{
@@ -14,13 +15,13 @@ const HouseFilter = ({ allHouses }) => {
   return (
     <div className="row mt-3">
       <div className="offset-md-2 col-md-4">
-        Look for your dream house in country
+        Look for your dream house in country:
       </div>
       <div className="col-md-4 mb-3">
         <select className="form-select" onChange={onSearchChange}>
-          {countries.map((country) => {
-            <option key={country} value={country}>
-              {country}
+          {countries.map((c) => {
+            <option key={c} value={c}>
+              {c}
             </option>;
           })}
         </select>
